@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+
+#variable for gender
+boy=False
+girl=False
+
+#Asks the user what their gender is
+def genderchk():
+    global boy
+    global girl
+    gender = input("Are you a boy or a girl? ").lower()
+    # .lower was missing the (), so that was one issue
+    if gender=="boy":
+        boy = True
+    elif gender=="girl":
+       girl = True
+
+while boy !=True and girl !=True:
+    genderchk()
+
+#The Pokemon is based off of both the gender and personality and this sets the gender for the user
+if boy ==1:
+    print("Ahh, so you're a boy then!")
+elif girl ==1:
+    print("Ahh, so you're a girl then!")
+
+print("Let me ask you a few questions to figure out your personality.")
+
+#Personality Types
+Jolly=0
+Hardy=0
+Timid=0
+Relaxed=0
+Impish=0
+
+#The following are the questions for the user
+def q1():
+    global Jolly
+    global Hardy
+    global Timid
+    question=input("A foreign person has started a conversation with you. To be honest , you don't have a clue what they are saying. How do you reply? (Select by typing the number) \n1. Haha! Yes. Very funny! \n2. Um, could you say that again? \n3. Right...Well I gotta go..\n:")
+    if question == "1":
+        Jolly+=3
+    elif question == "2":
+        Hardy +=2
+    elif question == "3":
+        Timid +=2
+
+def q2():
+    global Relaxed
+    global Hardy
+    global Impish
+    question=input("A test is coming up. How do you study for it? (Select by typing the number) \n1. Study Hard \n2. At the last second \n3. Ignore it and play\n:")
+    if question == "1":
+        Hardy +=2
+    elif question =='2':
+        Relaxed +=2
+    elif question == '3':
+        Impish +=2
+
+def q3():
+    global Jolly
+    global Hardy
+    global Timid
+    question=input("You are suddenly locked inside a pitch black room! What do you do? (Select by typing the number) \n1. Kick the door \n2. Cry \n3. Clean it\n:")
+    if question == "1":
+        Jolly +=2
+    elif question =='2':
+        Timid +=2
+    elif question == '3':
+        Hardy +=3
+
+def q4():
+    global Jolly
+    global Relaxed
+    global Timid
+    question=input("It's a pleasant day at the beach! How do you feel? (Select by typing the number) \n1. This feels great! \n2. Snore \n3. I want to go home soon!\n:")
+    if question == "1":
+        Jolly +=2
+    elif question =='2':
+        Relaxed +=2
+    elif question == '3':
+        Timid +=2
+
+def q5():
+    global Relaxed
+    global Impish
+    question=input("A friend comes up to you with an idea for a prank, how do you respond? (Select by typing the number) \n1. Heck Yeah! \n2. Nahh, too much effort\n:")
+    if question == "1":
+        Impish +=4
+    elif question =='2':
+        Relaxed +=2
+#Ask questions to the user
+q1()
+q2()
+q3()
+q4()
+q5()
+
+#Puts the personalities in a list so it can sorted to determine the user's personality
+personalities = {Jolly:"Jolly", Timid:"Timid", Relaxed:"Relaxed", Hardy:"Hardy", Impish:"Impish"}
+
+#variables for the genders to determine Pokemon
+girlmon= ""
+boymon = ""
+
+#The following determine what the user's Pokemon is based on their personality score and gender
+def girlresult():
+    global girlmon
+    if personalities.get(max(personalities)) == "Jolly":
+        girlmon = "Pikachu"
+    elif personalities.get(max(personalities)) == "Timid":
+        girlmon = "Bulbasaur"
+    elif personalities.get(max(personalities)) == "Impish":
+        girlmon = "Charmander"
+    elif personalities.get(max(personalities)) == "Relaxed":
+        girlmon = "Squirtle"
+    elif personalities.get(max(personalities)) == "Hardy":
+        girlmon = "Cubone"
+    print(f"To Review: You are a girl and your personality type is {personalities.get(max(personalities))} and that makes you a {girlmon}. Now off on your adventure you go!")
+
+def boyresult():
+    global boymon
+    if personalities.get(max(personalities)) == "Jolly":
+        boymon = "Charmander"
+    elif personalities.get(max(personalities)) == "Timid":
+        boymon = "Cubone"
+    elif personalities.get(max(personalities)) == "Impish":
+        boymon = "Pikachu"
+    elif personalities.get(max(personalities)) == "Relaxed":
+        boymon = "Bulbasaur"
+    elif personalities.get(max(personalities)) == "Hardy":
+        girlmon = "Squirtle"
+    print(f"To Review: You are a boy and your personality type is {personalities.get(max(personalities))} and that makes you a {boymon}. Now off on your adventure you go!")
+
+#One last check to give the user their result!
+if boy == 1:
+    boyresult()
+elif girl ==1:
+    girlresult()
+
+
+#commands to print out final scores if you want to uncomment.
+#print(Timid)
+#print(Hardy)
+#print(Jolly)
+#print(Impish)
+#print(Relaxed)
