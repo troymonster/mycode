@@ -1,0 +1,22 @@
+ 
+    Bellsprout #69 
+    Type1: Grass 
+    Type2: Poison 
+    Base Stats: 
+    HP: 50 
+    Attack: 75 
+    Defense: 35 
+    Special Attack: 70 
+    Special Defence: 30 
+    Speed: 40
+ 
+    Meowth #52 
+    Type1: Normal 
+    Type2:  
+    Base Stats: 
+    HP: 40 
+    Attack: 45 
+    Defense: 35 
+    Special Attack: 40 
+    Special Defence: 40 
+    Speed: 90
