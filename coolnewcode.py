@@ -25,6 +25,7 @@ print(characterIds)
 # the data object we'll fill up and return
 inventory= {}
 
+
 # send a GET request to each characterId to receive JSON of all non-equipped items
 for characterId in characterIds:
     url2= f"{api}/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/?components=CharacterInventories"
@@ -38,7 +39,7 @@ for characterId in characterIds:
     # for this character, loop across all non-equipped items. Add to a list-value for each character.
     for item in resp["Response"]["inventory"]["data"]["items"]:
         itemID = str(item.get("itemHash"))
-        if itemID:
+        if itemID: # if there is an itemID
             if hugejson.get(itemID):
                 x= hugejson[itemID]["displayProperties"]["name"]
                 inventory[f"Character #{characterId}"].append(x)
